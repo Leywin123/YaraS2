@@ -1,0 +1,113 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>NEON</title>
+    <style>
+            body
+                { 
+                    position: relative;
+                    font-family: Arial, Helvetica, sans-serif;
+                    background: radial-gradient(circle at center,#a200ff,#3a0073);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    margin: 0;
+                    overflow: hidden;
+                }
+              body::before {
+                content: "";
+                position: absolute;
+                width: 200%;
+                height: 200%;
+                background: conic-gradient(from 0deg,#ff00ff,#a200ff,#6a00ff,#ff00ff);
+                animation: rotate 10s linear infinite;
+                filter: blur(120px);
+                z-index: -1;
+              }
+              @keyframes rotate {
+                0% {transform: rotate(0deg);}
+                100% {transform: rotate(360deg);}
+              }
+              .login-container {
+                position: relative;
+                z-index: 1;
+                background: rgba(0, 0, 0, 0.85);
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: 0 0 20px #a200ff, 0 0 40px #ff00ff;
+                width: 300px;
+                text-align: center;
+                color: white;
+              }
+              .login-container h2 {
+                margin-bottom: 20px;
+                color: #ff8aff;
+                text-shadow: 0 0 5px #ff00ff, 0 0 10px #a200ff;
+              }
+              .login-container input {
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 6px;
+                background: #1a1a1a;
+                color: white;
+                box-shadow: inset 0 0 5px #a200ff;
+              }
+              .login-container button {
+                width: 100%;
+                padding: 10px;
+                background: linear-gradient(90deg, #ff00ff, #a200ff);
+                border: none;
+                border-radius: 6px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                box-shadow: 0 0 10px #ff00ff, 0 0 20px #a200ff;
+                transition: 0.2s;
+              }
+              .login-container button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px #ff00ff, 0 0 40px #a200ff;
+              }
+              #error-message {
+                color: #ff4dd2;
+                margin: 10px;
+                text-shadow: 0 0 5px #ff00ff;
+              }
+              </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <p id="error-message"></p>
+    </div>
+    <script>
+                   document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("loginForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                const errorMessage = document.getElementById("error-message");
+                const usuarioCorreto = "luizxp";
+                const senhaCorreta = "1234";
+                if (username === usuarioCorreto && password === senhaCorreta) {
+                    alert("Login realizado com sucesso!");
+                    window.location.href = "Foto-html.html";
+                } else {
+                    errorMessage.textContent = "Usuário ou senha incorretos!";
+                }
+            });
+        });
+
+                    </script>
+              </body>
+</html>
